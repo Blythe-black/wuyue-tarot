@@ -7,6 +7,7 @@
   <meta name="description" content="通过手势或触控抽取塔罗牌，在七十八种象征里照见此刻。">
   <title>雾月 Tarot｜问月，也问自己</title>
   <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./enhancements.css">
 </head>
 <body>
   <div class="grain" aria-hidden="true"></div>
@@ -37,28 +38,36 @@
 
     <section id="prepare" class="screen page">
       <div class="heading"><p class="eyebrow">BEFORE THE DRAW</p><h2>留一个问题给月亮</h2><p>问题可以具体，也可以留白。答案不是预言，而是一面镜子。</p></div>
-      <label class="question"><span>此刻，你想看见什么？</span><textarea id="question" maxlength="120" rows="3" placeholder="例如：我该如何面对最近的变化？（可不填）"></textarea><small id="counter">0 / 120</small></label>
+      <div class="question"><span>此刻，你想看见什么？</span>
+        <div id="question-options" class="question-options">
+          <button class="active" data-question="我未来一个月的爱情运势会如何发展？"><i>爱情</i><b>我未来一个月的爱情运势会如何发展？</b></button>
+          <button data-question="我未来一个月的财运如何，有什么机会需要把握？"><i>财运</i><b>我未来一个月的财运如何，有什么机会需要把握？</b></button>
+          <button data-question="我目前的事业发展卡在哪里，下一步该怎么走？"><i>事业</i><b>我目前的事业发展卡在哪里，下一步该怎么走？</b></button>
+          <button data-question="未来一个月，我该如何调整学习状态并实现目标？"><i>学业</i><b>未来一个月，我该如何调整学习状态并实现目标？</b></button>
+          <button data-question="我该如何改善目前最困扰我的人际关系？"><i>人际</i><b>我该如何改善目前最困扰我的人际关系？</b></button>
+          <button data-question="custom"><i>自由</i><b>我想问自己的问题</b></button>
+        </div>
+        <label id="custom-question-wrap" class="custom-question" hidden><textarea id="question" maxlength="120" rows="2" placeholder="写下你真正想问的问题……"></textarea><small id="counter">0 / 120</small></label>
+      </div>
       <div class="block"><h3>选择牌阵</h3><div class="choices">
         <button class="choice active" data-spread="single"><span class="cards-icon one"><i></i></span><b>一张牌</b><small>今日指引 · 观照此刻</small></button>
         <button class="choice" data-spread="three"><span class="cards-icon"><i></i><i></i><i></i></span><b>三张牌</b><small>过去 · 现在 · 未来</small></button>
       </div></div>
       <div class="block"><h3>选择抽牌方式</h3><div class="modes">
-        <button class="active" data-mode="gesture"><span>⌁</span><b>手势感应</b><small>需要摄像头</small></button>
-        <button data-mode="touch"><span>◎</span><b>点击抽取</b><small>鼠标或触屏</small></button>
+        <button class="active" data-mode="touch"><span>◎</span><b>点击抽取</b><small>从完整牌阵中亲自选择</small></button>
+        <button data-mode="random"><span>✦</span><b>随机生成</b><small>让牌阵替你完成抽取</small></button>
       </div></div>
       <button id="begin" class="primary">进入牌阵　→</button>
     </section>
 
     <section id="draw" class="screen draw">
-      <div class="draw-nav"><button data-screen="prepare">← 返回</button><span id="spread-title">一张牌 · 今日指引</span><button id="switch-mode">改用点击</button></div>
-      <div class="draw-heading"><p class="eyebrow">BREATHE · FEEL · CHOOSE</p><h2 id="draw-title">让手停在有感应的那张牌上</h2><p id="draw-help">舒展手掌移动光点，拇指与食指捏合半秒即可抽取</p></div>
+      <div class="draw-nav"><button data-screen="prepare">← 返回</button><span id="spread-title">一张牌 · 今日指引</span><button id="switch-mode">改用随机</button></div>
+      <div class="draw-heading"><p class="eyebrow">BREATHE · FEEL · CHOOSE</p><h2 id="draw-title">从七十八张牌中选择你的回应</h2><p id="draw-help">缓慢浏览完整牌阵，凭第一直觉点击一张牌</p></div>
       <div class="stage">
-        <div id="camera" class="camera"><video id="video" muted playsinline></video><button id="start-camera"><b>开启手势感应</b><small>浏览器将询问摄像头权限</small></button><p id="camera-message"></p></div>
-        <button id="hide-camera" class="hide-camera hidden">隐藏画面</button>
         <div id="fan" class="fan" role="listbox" aria-label="塔罗牌堆"></div>
-        <div id="cursor" class="cursor hidden"><span></span></div>
+        <button id="random-draw" class="random-draw hidden"><span>✦</span><b>让牌阵随机回应</b><small>由安全随机数完成抽取</small></button>
       </div>
-      <p class="status"><i id="status-dot"></i><span id="status-text">等待你的手掌</span></p>
+      <p class="status"><i id="status-dot"></i><span id="status-text">78 张牌已展开 · 相信第一眼的感受</span></p>
       <div id="slots" class="slots"></div>
     </section>
 
