@@ -1,0 +1,130 @@
+.question-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9px;
+}
+.question-options button {
+  min-height: 58px;
+  border: 1px solid #17242125;
+  background: #ffffff25;
+  padding: 10px 13px;
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  align-items: center;
+  text-align: left;
+}
+.question-options button:hover,
+.question-options button.active {
+  border-color: var(--red);
+  background: #ffffff85;
+}
+.question-options button.active { box-shadow: inset 3px 0 var(--red); }
+.question-options i {
+  font-style: normal;
+  color: var(--red);
+  font-size: 10px;
+  letter-spacing: .12em;
+}
+.question-options b {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.6;
+  letter-spacing: .04em;
+}
+.custom-question {
+  display: block;
+  position: relative;
+  margin-top: 12px;
+}
+.custom-question textarea {
+  padding-left: 13px;
+  border: 1px solid #17242135;
+  background: #ffffff44;
+}
+.stage { height: 440px; }
+.fan {
+  width: min(1120px, 94vw);
+  height: 405px;
+  display: grid;
+  grid-template-columns: repeat(26, 74px);
+  grid-template-rows: repeat(3, 126px);
+  gap: 7px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 7px 12px 18px;
+  scrollbar-color: var(--red) #17242118;
+  scrollbar-width: thin;
+}
+.fan button {
+  position: relative;
+  width: 74px;
+  height: 126px;
+  left: auto;
+  bottom: auto;
+  transform: none;
+  transform-origin: center;
+}
+.fan button:hover,
+.fan button:focus-visible { transform: translateY(-7px) scale(1.05); }
+.fan button.chosen {
+  opacity: .18;
+  pointer-events: none;
+}
+.fan .back { border-width: 3px; }
+.fan .back::after {
+  inset: 4px;
+  font-size: 22px;
+}
+.random-draw {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 250px;
+  height: 130px;
+  border: 1px solid var(--ink);
+  background: #f5f0e6ed;
+  display: grid;
+  place-content: center;
+  gap: 8px;
+  z-index: 30;
+  box-shadow: 0 22px 60px #1724212b;
+}
+.random-draw span {
+  font-size: 25px;
+  color: var(--red);
+}
+.random-draw b {
+  font-weight: 400;
+  letter-spacing: .15em;
+}
+.random-draw small {
+  color: var(--muted);
+  font-size: 9px;
+}
+.random-draw:hover { border-color: var(--red); }
+.fan.veiled {
+  opacity: .33;
+  filter: blur(1px);
+}
+.card img {
+  object-fit: contain;
+  background: #e8ddbf;
+}
+@media (max-width: 800px) {
+  .question-options { grid-template-columns: 1fr; }
+  .stage { height: 410px; }
+  .fan {
+    width: 100vw;
+    height: 380px;
+    transform: translateX(-50%);
+    grid-template-columns: repeat(26, 66px);
+    grid-template-rows: repeat(3, 112px);
+    gap: 6px;
+    padding-left: 16px;
+  }
+  .fan button {
+    width: 66px;
+    height: 112px;
+  }
+}
