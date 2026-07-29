@@ -42,31 +42,24 @@
   border: 1px solid #17242135;
   background: #ffffff44;
 }
-.stage { height: 440px; }
+.stage { height: 410px; overflow: hidden; }
 .fan {
-  width: min(1120px, 94vw);
-  height: 405px;
-  display: grid;
-  grid-template-columns: repeat(26, 74px);
-  grid-template-rows: repeat(3, 126px);
-  gap: 7px;
-  overflow-x: auto;
-  overflow-y: hidden;
-  padding: 7px 12px 18px;
-  scrollbar-color: var(--red) #17242118;
-  scrollbar-width: thin;
+  width: min(1080px, 96vw);
+  height: 395px;
+  overflow: visible;
 }
 .fan button {
-  position: relative;
-  width: 74px;
-  height: 126px;
-  left: auto;
-  bottom: auto;
-  transform: none;
-  transform-origin: center;
+  position: absolute;
+  width: 112px;
+  height: 190px;
+  left: calc(50% - 56px);
+  bottom: calc(18px - var(--lift));
+  transform: rotate(var(--angle));
+  transform-origin: 50% 230px;
+  z-index: var(--z);
 }
 .fan button:hover,
-.fan button:focus-visible { transform: translateY(-7px) scale(1.05); }
+.fan button:focus-visible { transform: rotate(var(--angle)) translateY(-38px); z-index: 80; }
 .fan button.chosen {
   opacity: .18;
   pointer-events: none;
@@ -111,21 +104,21 @@
 .card img {
   object-fit: contain;
   background: #e8ddbf;
+  height: 100%;
 }
+.card-inner { display: block; }
 @media (max-width: 800px) {
   .question-options { grid-template-columns: 1fr; }
-  .stage { height: 410px; }
+  .stage { height: 350px; }
   .fan {
-    width: 100vw;
-    height: 380px;
-    transform: translateX(-50%);
-    grid-template-columns: repeat(26, 66px);
-    grid-template-rows: repeat(3, 112px);
-    gap: 6px;
-    padding-left: 16px;
+    width: 1100px;
+    height: 335px;
+    transform: translateX(-50%) scale(.72);
+    transform-origin: bottom center;
   }
   .fan button {
-    width: 66px;
-    height: 112px;
+    width: 104px;
+    height: 176px;
+    left: calc(50% - 52px);
   }
 }
