@@ -23,7 +23,6 @@
         <h1>问月，<br>也问自己。</h1>
         <p class="lede">安静片刻，把问题留在心里。<br>从七十八种象征里，选择此刻与你相遇的牌。</p>
         <button class="seal" data-screen="prepare"><span>开始占卜</span><b>→</b></button>
-        <small class="privacy">● 无需摄像头 · 抽牌结果仅保存在你的浏览器</small>
       </div>
       <div class="moon-wrap" aria-hidden="true">
         <div class="moon">
@@ -40,12 +39,12 @@
       <div class="heading"><p class="eyebrow">BEFORE THE DRAW</p><h2>留一个问题给月亮</h2><p>问题可以具体，也可以留白。答案不是预言，而是一面镜子。</p></div>
       <div class="question"><span>此刻，你想看见什么？</span>
         <div id="question-options" class="question-options">
-          <button class="active" data-question="我未来一个月的爱情运势会如何发展？"><i>爱情</i><b>我未来一个月的爱情运势会如何发展？</b></button>
-          <button data-question="我未来一个月的财运如何，有什么机会需要把握？"><i>财运</i><b>我未来一个月的财运如何，有什么机会需要把握？</b></button>
-          <button data-question="我目前的事业发展卡在哪里，下一步该怎么走？"><i>事业</i><b>我目前的事业发展卡在哪里，下一步该怎么走？</b></button>
-          <button data-question="未来一个月，我该如何调整学习状态并实现目标？"><i>学业</i><b>未来一个月，我该如何调整学习状态并实现目标？</b></button>
-          <button data-question="我该如何改善目前最困扰我的人际关系？"><i>人际</i><b>我该如何改善目前最困扰我的人际关系？</b></button>
-          <button data-question="custom"><i>自由</i><b>我想问自己的问题</b></button>
+          <button class="active" data-category="love" data-question="我未来一个月的爱情运势会如何发展？"><i>爱情</i><b>我未来一个月的爱情运势会如何发展？</b></button>
+          <button data-category="wealth" data-question="我未来一个月的财运如何，有什么机会需要把握？"><i>财运</i><b>我未来一个月的财运如何，有什么机会需要把握？</b></button>
+          <button data-category="career" data-question="我目前的事业发展卡在哪里，下一步该怎么走？"><i>事业</i><b>我目前的事业发展卡在哪里，下一步该怎么走？</b></button>
+          <button data-category="study" data-question="未来一个月，我该如何调整学习状态并实现目标？"><i>学业</i><b>未来一个月，我该如何调整学习状态并实现目标？</b></button>
+          <button data-category="relationship" data-question="我该如何改善目前最困扰我的人际关系？"><i>人际</i><b>我该如何改善目前最困扰我的人际关系？</b></button>
+          <button data-category="custom" data-question="custom"><i>自由</i><b>我想问自己的问题</b></button>
         </div>
         <label id="custom-question-wrap" class="custom-question" hidden><textarea id="question" maxlength="120" rows="2" placeholder="写下你真正想问的问题……"></textarea><small id="counter">0 / 120</small></label>
       </div>
@@ -67,7 +66,7 @@
         <div id="fan" class="fan" role="listbox" aria-label="塔罗牌堆"></div>
         <button id="random-draw" class="random-draw hidden"><span>✦</span><b>让牌阵随机回应</b><small>由安全随机数完成抽取</small></button>
       </div>
-      <p class="status"><i id="status-dot"></i><span id="status-text">78 张牌已展开 · 相信第一眼的感受</span></p>
+      <p class="status"><i id="status-dot"></i><span id="status-text">78 张牌已洗匀 · 相信第一眼的感受</span></p>
       <div id="slots" class="slots"></div>
     </section>
 
