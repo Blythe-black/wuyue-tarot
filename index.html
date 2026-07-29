@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#eee9df">
+  <meta name="description" content="通过手势或触控抽取塔罗牌，在七十八种象征里照见此刻。">
+  <title>雾月 Tarot｜问月，也问自己</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <header>
+    <button class="brand" data-screen="home"><span class="sigil">☾</span><b>雾月</b></button>
+    <nav><button data-screen="history">占卜记录</button><i></i><button data-screen="home">关于</button></nav>
+  </header>
+
+  <main>
+    <section id="home" class="screen active hero">
+      <div class="hero-copy">
+        <p class="eyebrow">TAROT · INNER DIALOGUE</p>
+        <h1>问月，<br>也问自己。</h1>
+        <p class="lede">安静片刻，把问题留在心里。<br>让手掌替你，从七十八种象征里抽出此刻。</p>
+        <button class="seal" data-screen="prepare"><span>开始占卜</span><b>→</b></button>
+        <small class="privacy">● 手势影像仅在你的设备上处理，不会上传或保存</small>
+      </div>
+      <div class="moon-wrap" aria-hidden="true">
+        <div class="moon">
+          <div class="hero-cards">
+            <div class="back"></div><div class="back"></div><div class="back"></div>
+          </div>
+          <span class="mist m1"></span><span class="mist m2"></span>
+        </div>
+        <p>一念起 · 万象生</p>
+      </div>
+    </section>
+
+    <section id="prepare" class="screen page">
+      <div class="heading"><p class="eyebrow">BEFORE THE DRAW</p><h2>留一个问题给月亮</h2><p>问题可以具体，也可以留白。答案不是预言，而是一面镜子。</p></div>
+      <label class="question"><span>此刻，你想看见什么？</span><textarea id="question" maxlength="120" rows="3" placeholder="例如：我该如何面对最近的变化？（可不填）"></textarea><small id="counter">0 / 120</small></label>
+      <div class="block"><h3>选择牌阵</h3><div class="choices">
+        <button class="choice active" data-spread="single"><span class="cards-icon one"><i></i></span><b>一张牌</b><small>今日指引 · 观照此刻</small></button>
+        <button class="choice" data-spread="three"><span class="cards-icon"><i></i><i></i><i></i></span><b>三张牌</b><small>过去 · 现在 · 未来</small></button>
+      </div></div>
+      <div class="block"><h3>选择抽牌方式</h3><div class="modes">
+        <button class="active" data-mode="gesture"><span>⌁</span><b>手势感应</b><small>需要摄像头</small></button>
+        <button data-mode="touch"><span>◎</span><b>点击抽取</b><small>鼠标或触屏</small></button>
+      </div></div>
+      <button id="begin" class="primary">进入牌阵　→</button>
+    </section>
+
+    <section id="draw" class="screen draw">
+      <div class="draw-nav"><button data-screen="prepare">← 返回</button><span id="spread-title">一张牌 · 今日指引</span><button id="switch-mode">改用点击</button></div>
+      <div class="draw-heading"><p class="eyebrow">BREATHE · FEEL · CHOOSE</p><h2 id="draw-title">让手停在有感应的那张牌上</h2><p id="draw-help">舒展手掌移动光点，拇指与食指捏合半秒即可抽取</p></div>
+      <div class="stage">
+        <div id="camera" class="camera"><video id="video" muted playsinline></video><button id="start-camera"><b>开启手势感应</b><small>浏览器将询问摄像头权限</small></button><p id="camera-message"></p></div>
+        <button id="hide-camera" class="hide-camera hidden">隐藏画面</button>
+        <div id="fan" class="fan" role="listbox" aria-label="塔罗牌堆"></div>
+        <div id="cursor" class="cursor hidden"><span></span></div>
+      </div>
+      <p class="status"><i id="status-dot"></i><span id="status-text">等待你的手掌</span></p>
+      <div id="slots" class="slots"></div>
+    </section>
+
+    <section id="result" class="screen page result">
+      <div class="heading"><p class="eyebrow">THE CARDS HAVE SPOKEN</p><h2>此刻的牌面</h2><p id="result-question"></p></div>
+      <div id="result-cards" class="result-cards"></div>
+      <article class="reading"><span class="sigil">☾</span><div><p class="eyebrow">YOUR READING</p><h3 id="reading-title">今日启示</h3><div id="reading-text"></div></div></article>
+      <div class="actions"><button id="save" class="primary">保存本次占卜</button><button id="copy" class="secondary">复制解读</button><button id="again">重新占卜</button></div>
+    </section>
+
+    <section id="history" class="screen page history">
+      <div class="heading"><p class="eyebrow">PRIVATE ARCHIVE</p><h2>占卜记录</h2><p>只保存在当前浏览器。清理浏览器数据后，记录也会随之消失。</p></div>
+      <div id="history-list"></div>
+    </section>
+  </main>
+
+  <footer><b>雾月 Tarot</b><span>仅供娱乐与自我反思，不替代医疗、法律或财务建议。</span><span>牌面：Rider–Waite–Smith（1909，公版）· Wikimedia Commons</span></footer>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
